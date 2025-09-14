@@ -25,7 +25,7 @@ jobs:
       - name: Run Unit Tests
         run: |
           echo "Running password generation tests..."
-          java PasswordGeneratorTest
+          cd src && java com.ivoyant.PasswordGeneratorTest
           
       - name: Security Validation
         run: |
