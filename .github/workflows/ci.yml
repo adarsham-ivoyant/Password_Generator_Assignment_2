@@ -1,0 +1,35 @@
+name: Password Generator Java CI
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          
+      - name: Compile Java Code
+        run: |
+          echo "Compiling Password Generator..."
+          javac *.java
+          
+      - name: Run Unit Tests
+        run: |
+          echo "Running password generation tests..."
+          java PasswordGeneratorTest
+          
+      - name: Security Validation
+        run: |
+          echo "Running security checks..."
+          # This will fail intentionally for demo
+          echo "SECURITY ALERT: Weak password patterns detected"
+          exit 1
