@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.lang.String;
 
-
+#testing
 public class App
 {
     public int len;
